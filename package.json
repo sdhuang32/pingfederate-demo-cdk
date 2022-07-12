@@ -1,0 +1,29 @@
+{
+  "name": "pingfed-stack",
+  "version": "0.1.0",
+  "bin": {
+    "pingfed-stack": "bin/pingfed-stack.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@aws-cdk/assert": "1.106.1",
+    "@types/jest": "^26.0.10",
+    "@types/node": "10.17.27",
+    "aws-cdk-lib": "2.27.0",
+    "constructs": "10.1.36",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.2.0",
+    "ts-node": "^9.0.0",
+    "typescript": "~3.9.7"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.27.0",
+    "constructs": "10.1.36",
+    "config": "3.3.6"
+  }
+}
