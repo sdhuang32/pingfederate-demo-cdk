@@ -15,6 +15,8 @@ Here is a concise architecture of this system:
 
 ## Usage
 
+ * Install `npm` and `cdk` (`npm install -g aws-cdk`) on your device.
+ * Run `npm install` after you clone this repo and switch into the directory as the working directory.
  * `NODE_ENV="[dev|sit|staging|prod]" cdk synth [stacks] -c stackName="what-ever-to-prevent-collision" --profile "your-aws-cli-profile"`
    * e.g. `NODE_ENV="dev" cdk synth pingfed-demo -c stackName="pingfed-demo" --profile dev`
  * `NODE_ENV="[dev|sit|staging|prod]" cdk deploy [stacks] -c stackName="what-ever-to-prevent-collision" --profile "your-aws-cli-profile" [--require-approval never]`
