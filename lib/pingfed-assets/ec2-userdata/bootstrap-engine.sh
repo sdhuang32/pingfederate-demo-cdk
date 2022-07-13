@@ -111,9 +111,6 @@ sed -i "s/pf.cluster.encryption.keysize=128/pf.cluster.encryption.keysize=256/g"
 pfcluster_auth_passwd_obf=$(cat /tmp/startup/${DeployID} | grep OBF)
 sed -i "s/pf.cluster.auth.pwd=/pf.cluster.auth.pwd=${pfcluster_auth_passwd_obf}/g" ${PF_HOME}/bin/run.properties
 
-#xmlstarlet ed -L -u "module/service-point[@id='ClientManager' and @interface='org.sourceid.oauth20.domain.ClientManager']
-#    /invoke-factory/construct[@class='org.sourceid.oauth20.domain.ClientManagerXmlFileImpl']/@class" \
-#        -v "org.sourceid.oauth20.domain.ClientManagerLdapImpl" ${PF_HOME}/server/default/conf/META-INF/hivemodule.xml
 systemctl restart pingfederate
 wait_for_pingfed_engine_ready
 echo "PingFed Engine started successfully"

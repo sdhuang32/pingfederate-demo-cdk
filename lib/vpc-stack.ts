@@ -12,10 +12,6 @@ export class VpcStack extends cdk.Stack {
     this.vpc = new ec2.Vpc(this, 'Vpc', {
       maxAzs: 3,
       natGateways: 1,
-      natGatewaySubnets: {
-        subnetType: ec2.SubnetType.PUBLIC,
-        availabilityZones: ["ap-southeast-2b"]
-      }
     });
   }
 }

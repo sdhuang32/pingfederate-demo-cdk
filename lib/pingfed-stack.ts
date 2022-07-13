@@ -133,7 +133,6 @@ export class PingFedStack extends cdk.Stack {
       runtimeBucket, deployId, commonPingFederateApplicationPolicy);
     const asgEngine = this.createAsgForPingFed('engine', pingAmi, privateSubnets, sgEngine, 3, 3,
       runtimeBucket, deployId, commonPingFederateApplicationPolicy);
-    //const albAdmin = this.createALBAndAttachAsg('admin', [9999], publicSubnets, asgAdmin);
     const nlbAdmin = this.createNLBAndAttachAdminAsg('admin', [9999], publicSubnets, asgAdmin);
     const albEngine = this.createALBAndAttachEngineAsg('engine', [9031], publicSubnets, asgEngine);
 
@@ -156,12 +155,6 @@ export class PingFedStack extends cdk.Stack {
     sg.addIngressRule(sg, ec2.Port.tcp(7600));
     sg.addIngressRule(sg, ec2.Port.tcp(7700));
 
-    /*
-    if (name == 'admin') {
-    } else if (name == 'engine') {
-    }
-    */
-    
     const asg = new autoscaling.AutoScalingGroup(this, 'asg-' + name, {
       vpc: this.vpc,
       instanceType: ec2.InstanceType.of(ec2.InstanceClass.C5, ec2.InstanceSize.LARGE),

@@ -267,9 +267,6 @@ else
     wait_for_init_to_complete
 
     cluster_encryption_setup "recovery"
-    #xmlstarlet ed -L -u "module/service-point[@id='ClientManager' and @interface='org.sourceid.oauth20.domain.ClientManager']
-    #    /invoke-factory/construct[@class='org.sourceid.oauth20.domain.ClientManagerXmlFileImpl']/@class" \
-    #    -v "org.sourceid.oauth20.domain.ClientManagerLdapImpl" ${PF_HOME}/server/default/conf/META-INF/hivemodule.xml
     sleep 1
     systemctl restart pingfederate
     wait_for_pingfed_admin_ready
