@@ -15,6 +15,11 @@ Here is a concise architecture of this system:
 
 ## Usage
 
+#### Assumptions when running the following commands
+1. You are using an administrator IAM user/role in order to prevent possible permission issues.
+2. You can directly access IPs/endpoints of resources created in a public subnet in a newly created VPC,
+from your local device.
+
  * Install `npm` and `cdk` (`npm install -g aws-cdk`) on your device.
  * Run `npm install` after you clone this repo and switch into the directory as the working directory.
  * `NODE_ENV="[dev|sit|staging|prod]" cdk synth [stacks] -c stackName="what-ever-to-prevent-collision" --profile "your-aws-cli-profile"`
@@ -28,7 +33,7 @@ Here is a concise architecture of this system:
            run `NODE_ENV="dev" cdk destroy --all -c stackName="pingfed-demo" --profile dev --force`.
            for more details please refer to [`cdk` command usage](https://docs.aws.amazon.com/cdk/v2/guide/cli.html).
 
-### Access the established PingFederate admin console
+#### Access the established PingFederate admin console
 
 After the PingFederate stack is successfully deployed via `cdk deploy` command, it will output 2 ELB endpoint, one for PingFederate admin (NLB) and one for PingFederate engine (ALB).
 Use the admin (NLB) endpoint to access the admin console: `https://<NLB endpoint>`.
